@@ -1,0 +1,3 @@
+ansible_user: "{{ lookup('hashi_vault', 'secret=linux/data/hostname:username token={{ vault_rolinux_token}}  url={{ vault_url }} validate_certs=False') }}"
+ansible_become_pass: "{{ lookup('hashi_vault', 'secret=linux/data/hostname:password token={{ vault_rolinux_token}} url={{ vault_url }} validate_certs=False') }}"
+ansible_ssh_pass: "{{ lookup('hashi_vault', 'secret=linux/data/hostname:password token={{ vault_rolinux_token}}  url={{ vault_url }} validate_certs=False') }}"

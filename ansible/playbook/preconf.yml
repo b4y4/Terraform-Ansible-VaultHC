@@ -1,0 +1,15 @@
+---
+- hosts: all
+  gather_facts: yes
+  become: yes
+  vars_files:
+    - creds.yaml
+  tasks:
+  roles:
+    - { role: bashrc-role, tags: bashrc }
+    - { role: banner_connection-role, tags: banner }
+    - { role: resolv-role, tags: resolv }
+    - { role: vimrc-role, tags: vimrc }
+    - { role: zabbix-agent-role, tags: zabbixd }
+    - { role: ntp-role, tags: ntp }
+    - { role: CIS/CIS-Network, tags: cis-network }
